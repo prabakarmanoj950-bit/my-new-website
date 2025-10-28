@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request,render_template
+from flask import Flask, jsonify, request,render_template,send_file
 import psycopg2
 
 
@@ -28,12 +28,12 @@ def get_db_connection():
 # Home route
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return send_file('index.html')
 
 # Registration page
 @app.route('/register', methods=['GET'])
 def get_registration():
-    return render_template('Registration_form.html')
+    return   send_file('Registration_form.html')
 
 # GET - Fetch all employees
 @app.route('/submit', methods=['post'])

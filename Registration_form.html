@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="UTF-8">
+      <title>Flask HTML Integration</title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+    </head>
+    <body>
+      <div class="registraion-form">
+      <h1>Regsiration form</h1>
+      <script>
+        function validation(){
+          var fname=document.getElementsByName('fname')[0].value.trim();
+          var l_name=document.getElementsByName('lname')[0].value.trim();
+          var l_email=document.getElementsByName('email')[0].value.trim();
+          var phone_number=document.getElementsByName('contactno')[0].value.trim();
+          var course_type=document.getElementsByName('dropbox')[0].value.trim();
+          var gender=document.getElementsByName('gender')[0].value.trim();
+            if (fname === "" || l_name === "" || l_email === "" || phone_number === "" || course_type === "" || !gender) {
+              alert("⚠️ Please fill out all fields before submitting!");
+              return false; // prevent form submission
+            }
+
+        }
+        </script>
+      <form method="post" action="http://127.0.0.1:5000/submit" onsubmit="return validation()">
+        <label>Enter Firstname</label>
+        <input type="text" name="fname" id="fname">
+        <br>
+        <label>Enter Lastname</label>
+        <input type="text" name="lname" class="lname" id="lastname">
+        <br>
+        <label>Enter EmailID</label>
+        <input type="email" name="email" id="email"> 
+        <br>
+        <label>Enter Contact no</label>
+        <input type="number" name="contactno" id="number">
+        <br>
+        <label>Select Gender</label> 
+        <input type="radio" id="male" value="Male" name="gender">
+        <label>Male</label>
+        <input type="radio" id="Female" value="Female" name="gender">
+        <label>Female</label>
+        <br>
+        <br>
+        <label>Select course</label>
+        <select name="dropbox">
+          <option value="html">HTML</option>
+          <option value="css">CSS</option>
+          <option value="javascript">Javascript</option>
+          <option value="react">React</option>
+        </select>
+        <br>
+        <button  type="submit">Submit</button>
+         {% if message %}
+          <p class="message">{{ message }}
+          Back to log in page <a href="http://127.0.0.1:5000/">Click here</a></p>
+        {% endif %}
+      </form>
+      </div>
+    </body>
+</html>
