@@ -28,7 +28,9 @@ def get_db_connection():
 # Home route
 @app.route('/')
 def home():
-    return send_file('index.html')
+    website_name = request.host
+    return website_name
+   # return send_file('index.html')
 
 # Registration page
 @app.route('/register', methods=['GET'])
