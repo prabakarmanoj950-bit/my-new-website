@@ -3,7 +3,7 @@
     <head>
       <meta charset="UTF-8">
       <title>Flask HTML Integration</title>
-      <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+      <link rel="stylesheet" href="style1.css">
     </head>
     <body>
       <div class="registraion-form">
@@ -23,7 +23,7 @@
 
         }
         </script>
-      <form method="post" action="http://127.0.0.1:5000/submit" onsubmit="return validation()">
+      <form method="post" action="" onsubmit="return validation()">
         <label>Enter Firstname</label>
         <input type="text" name="fname" id="fname">
         <br>
@@ -54,7 +54,7 @@
         <button  type="submit">Submit</button>
          {% if message %}
           <p class="message">{{ message }}
-          Back to log in page <a href="http://127.0.0.1:5000/">Click here</a></p>
+          Back to log in page <a href="index.html">Click here</a></p>
         {% endif %}
       </form>
       </div>
