@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flask HTML Integration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+        <script>
+        function validation(){
+          var name=document.getElementsByName('name')[0].value.trim();
+          var l_password=document.getElementsByName('l_possword')[0].value.trim();
+            if (name === "" || l_password === "") {
+              alert("⚠️ Please fill out all fields before submitting!");
+              return false; // prevent form submission
+            }
+
+        }
+        </script>
+  <div class="registraion-form">
+    <h1>Welcome to Login Page</h1>
+    {% if message %}
+    <p>Please enter the valid user name and password</p>
+    {% endif%}
+    <form action="/home" onsubmit="return validation()" method="post">
+        <label>Enter your name:</label>
+        <input type="text"  name="l_name" id="l_name" placeholder="Enter user name" required>
+        <br>
+        <label>Enter your password:</label>
+        <input type="password" name="l_possword"  placeholder="Enter password"  required>
+        <br>
+        <button type="submit">LogIN</button>
+    </form>
+    <p><a href="http://127.0.0.1:5000/register"> Register the user</a></p>
+    <p><a href="##">Forgot password Please</a></p>
+    </div>
+</body>
+</html>
