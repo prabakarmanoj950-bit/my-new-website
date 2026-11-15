@@ -6,7 +6,7 @@ app = FastAPI()
 
 def get_connection():
     return psycopg2.connect(
-        os.environ["DATABASE_URL"]
+        os.environ["postgresql://postgres:[Qwerty@12345]@db.brpghinhqpoyvzutuhzz.supabase.co:5432/postgres"]
     )
 
 
