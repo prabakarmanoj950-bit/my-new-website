@@ -12,6 +12,7 @@ def get_connection():
 
 @app.get("/")
 def home():
+    get_employees()
     return {"message": "Employee API is working"}
 
 '''@app.get("/employees")
