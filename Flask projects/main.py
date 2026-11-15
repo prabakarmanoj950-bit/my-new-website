@@ -10,10 +10,20 @@ def get_connection():
     )
 
 
-@app.get("/")
+
+@app.get("/", response_class=HTMLResponse)
 def home():
-    get_employees()
-    return {"message": "Employee API is working"}
+    return """
+    <html>
+        <head>
+            <title>Employee Management</title>
+        </head>
+        <body>
+            <h1>Welcome to Employee Management</h1>
+            <p>This HTML is served by FastAPI.</p>
+        </body>
+    </html>
+    """
 
 '''@app.get("/employees")
 def get_employees():
